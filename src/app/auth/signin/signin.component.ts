@@ -19,18 +19,25 @@ export class SigninComponent implements OnInit {
   //on submission,username and password are passed as parameters i.e., as credentials
   onSubmit(credentials: NgForm){
     console.log(credentials);
-    //for now
+    //showing credentials are same as username and password
     console.log(this.username + ' ' + this.password);
 
     //after submission->further action
-    //call service method,pass parameters in its method.For getting service method, inject service as dependency in the constructor
+    //call service method to communicate with API,pass parameters in it.For getting service method, inject service as dependency in the constructor
     this.authService.signin(credentials).subscribe(response=>{
-      //if success->response stored in local storage
+      //if success->response which is json object->from which,jwt token is stored in local storage
       //->user role->//Admin -> dashboard
       //customer -> 
         //for now
+        console.log(response);
         console.log(response.jwtToken);
-        console.log(response);                       
+        if(response.userTypeId === 1){//customer
+          //navigate to customer homepage
+        }
+        else{
+          //navigate to admin dashboard
+        }
+                             
     },err=>{
       //if fail->alert
       alert(err);

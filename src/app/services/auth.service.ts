@@ -13,9 +13,10 @@ export class AuthService {
 
   signin(credentials){
     //call signin API(back end API)
-    //for calling API,we need httpClient object.so inject the dependency
+    //for calling API,we need httpClient object of HttpClient class.so inject the dependency here
+    //with httpClient obj,all http methods are available eg:get,post,put
     //to use get or post,go to authController.java class and look at requestMapping over signin method
-    //2nd parameter of post() need to be body of LoginDTO.java which contains username and password
+    //parameters of post() are url and body of LoginDTO.java which contains username and password
     //Now,API gives a response.This response is returned to calling method(signin) which is used in onSubmit
     return this.httpClient.post(this.url,credentials);
   }
