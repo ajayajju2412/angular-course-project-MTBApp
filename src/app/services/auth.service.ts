@@ -7,6 +7,7 @@ import { User } from '../models/user';
 })
 export class AuthService {
   saveUser(user: User) {
+    //saving user and token in local storage->application
     localStorage.setItem('token',user.jwtToken);
     localStorage.setItem('user',JSON.stringify(user));
   }

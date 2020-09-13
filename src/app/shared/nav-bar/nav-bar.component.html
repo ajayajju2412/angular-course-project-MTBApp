@@ -2,6 +2,19 @@
 <nav class='navbar navbar-expand navbar-light bg-light'>
     <ul class='nav nav-pills'>
         <li><a class='nav-link' [routerLink]="['']">Home</a> </li>
+        <li class="nav-item active">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control" type="search" placeholder="movie name" name="movieName" [(ngModel)]="movieName"
+                    style="width: 300px;" />
+                <button class="btn btn-success" type="submit" (click)="searchMovie()">
+                    Search
+                </button>
+            </form>
+        </li>
+        <li><a class='nav-link' [routerLink]="['/movie']">Add Movie</a> </li>
+        <li><a class='nav-link' [routerLink]="['/theatre']">Add Theatre</a> </li>
+        <li><a class='nav-link' [routerLink]="['/signin']">Logout</a> </li>
+
         <li><a class='nav-link' [routerLink]="['/signin']">Signin</a> </li>
         <li><a class='nav-link' [routerLink]="['/signup']">Signup</a> </li>
     </ul>
